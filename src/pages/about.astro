@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, skills } from '../data/site';
+---
+<Base title="About">
+  <h1>About</h1>
+  <p>Write a few paragraphs about who you are, what you care about, and what you're working on.</p>
+  <h2>Skills</h2>
+  <p>{skills.map((s) => <span class="tag">{s}</span>)}</p>
+  <h2>Contact</h2>
+  <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+</Base>

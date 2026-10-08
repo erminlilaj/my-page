@@ -1,0 +1,22 @@
+---
+import { site } from '../data/site';
+const path = Astro.url.pathname;
+---
+<header>
+  <div class="inner">
+    <a class="brand" href="/">{site.name}</a>
+    <nav>
+      {site.nav.map((n) => (
+        <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+<style>
+  header { border-bottom: 1px solid var(--border); }
+  .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: 1rem; }
+  .brand { font-weight: 700; color: var(--fg); text-decoration: none; }
+  nav { display: flex; gap: 1.25rem; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--fg); }
+</style>

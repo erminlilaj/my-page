@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { experience, skills } from '../data/site';
+---
+<Base title="Resume">
+  <h1>Resume</h1>
+  <h2>Experience</h2>
+  {experience.map((e) => (
+    <div class="card" style="margin-bottom:1rem">
+      <h3>{e.role} <span class="muted">· {e.org}</span></h3>
+      <div class="muted">{e.period}</div>
+      <p>{e.summary}</p>
+    </div>
+  ))}
+  <h2>Skills</h2>
+  <p>{skills.map((s) => <span class="tag">{s}</span>)}</p>
+</Base>
