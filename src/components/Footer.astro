@@ -1,17 +1,9 @@
 ---
-import { site } from '../data/site';
 ---
-<footer>
-  <div class="inner">
-    <span class="muted">© {new Date().getFullYear()} {site.name}</span>
-    <span>
-      {site.links.map((l) => <a href={l.href}>{l.label}</a>)}
-      <a href={`mailto:${site.email}`}>Email</a>
-    </span>
-  </div>
+<footer class="ticker" aria-label="Portfolio focus areas">
+  <div>ARTIFICIAL INTELLIGENCE <i>✦</i> SOFTWARE ENGINEERING <i>✦</i> RAG &amp; LLMs <i>✦</i> FULL-STACK <i>✦</i> ROME <i>✦</i></div>
 </footer>
 <style>
-  footer { border-top: 1px solid var(--border); }
-  .inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding-block: 1.5rem; }
-  span a { margin-left: 1rem; }
+  .ticker { position: relative; z-index: 7; width: calc(100% + 30px); margin: 8px 0 0 -15px; overflow: hidden; padding: 11px 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--blue); color: var(--paper); font: 500 11px var(--mono); letter-spacing: .08em; white-space: nowrap; transform: rotate(-.5deg); }
+  .ticker div { width: max-content; padding-left: 15px; }.ticker i { padding: 0 8px; color: var(--acid); font-style: normal; }
 </style>
