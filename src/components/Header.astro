@@ -14,7 +14,10 @@ const nav = [
         <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}><small>{n.prefix}</small> {n.label}</a>
       ))}
     </nav>
-    <a class="talk-button" href="mailto:ermin.lilaj04@gmail.com">Let’s talk ↗</a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode"><span aria-hidden="true">◐</span></button>
+      <a class="talk-button" href="mailto:ermin.lilaj04@gmail.com">Let’s talk ↗</a>
+    </div>
   </div>
 </header>
 <style>
@@ -27,7 +30,22 @@ const nav = [
   nav a small { color: var(--blue); font-size: 9px; vertical-align: 1px; }
   nav a::after { position: absolute; right: 0; bottom: -2px; left: 0; height: 3px; background: var(--coral); content: ''; transform: scaleX(0) rotate(-1deg); transform-origin: left; transition: transform .2s ease; }
   nav a:hover::after, nav a:focus-visible::after, nav a[aria-current]::after { transform: scaleX(1) rotate(-1deg); }
-  .talk-button { justify-self: end; padding: 10px 12px 9px; border: 2px solid var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--ink); color: var(--ink); font: 500 11px var(--mono); text-decoration: none; text-transform: uppercase; transition: transform .15s ease, box-shadow .15s ease; }
+  .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+  .theme-toggle { width: 36px; height: 36px; padding: 0; border: 2px solid var(--ink); background: transparent; color: var(--ink); font-size: 18px; line-height: 1; cursor: pointer; }
+  .theme-toggle:hover, .theme-toggle:focus-visible { background: var(--acid); }
+  .talk-button { justify-self: end; padding: 10px 12px 9px; border: 2px solid var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--shadow, var(--ink)); color: var(--ink); font: 500 11px var(--mono); text-decoration: none; text-transform: uppercase; transition: transform .15s ease, box-shadow .15s ease; }
   .talk-button:hover, .talk-button:focus-visible { box-shadow: none; transform: translate(3px, 3px); }
   @media (max-width: 760px) { .header-inner { grid-template-columns: 1fr auto; width: min(100% - 36px, 580px); } nav { display: none; } }
 </style>
+<script>
+  const root = document.documentElement;
+  const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const sync = () => toggle?.setAttribute('aria-pressed', String(root.dataset.theme === 'dark'));
+  sync();
+  toggle?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch {}
+    sync();
+  });
+</script>
