@@ -56,7 +56,7 @@ main.page-main > p a { color: var(--blue); font-family: var(--mono); }
   --grid-line: rgba(120, 206, 230, 0.1);
   --shadow: #4f78b5;
 }
-:root[data-theme='dark'] :is(.portrait-card, .sticky-note, .about-note, .skill-group, .project-card, .education, .availability, .stack, .terminal, .work-button, .talk-button, .contact-button, .model-label, .code-sticker, mark, .theme-toggle:hover) {
+:root[data-theme='dark'] :is(.portrait-card, .sticky-note, .about-note, .skill-group, .journey-card, .project-card, .education, .availability, .stack, .terminal, .work-button, .talk-button, .contact-button, .model-label, .code-sticker, mark, .theme-toggle:hover) {
   --ink: var(--navy);
   --paper: var(--cream);
   --blue: #1f4b99;
@@ -64,4 +64,4 @@ main.page-main > p a { color: var(--blue); font-family: var(--mono); }
 :root[data-theme='dark'] .learning,
 :root[data-theme='dark'] .languages { color: rgba(238, 240, 230, 0.72); }
 :root[data-theme='dark'] .portfolio-shell::after { mix-blend-mode: screen; opacity: 0.05; }
-:root[data-theme='dark'] :is(.portrait-card, .sticky-note, .about-note, .skill-group, .project-card, .education, .availability, .stack, .work-button, .talk-button, .contact-button, .model-label, .code-sticker, mark, .theme-toggle:hover) { color: var(--navy); }
+:root[data-theme='dark'] :is(.portrait-card, .sticky-note, .about-note, .skill-group, .journey-card, .project-card, .education, .availability, .stack, .work-button, .talk-button, .contact-button, .model-label, .code-sticker, mark, .theme-toggle:hover) { color: var(--navy); }

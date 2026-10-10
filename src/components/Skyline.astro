@@ -1,0 +1,62 @@
+---
+// Hand-drawn flat skylines. Front layer uses --ink, back layer uses --coral (teal).
+interface Props { city: 'tirana' | 'rome' }
+const { city } = Astro.props;
+
+const arches = (x: number, y: number, w: number, h: number, n: number, gap: number) =>
+  Array.from({ length: n }, (_, i) => {
+    const ax = x + i * gap, r = w / 2;
+    return `M${ax} ${y + h}V${y + r}A${r} ${r} 0 0 1 ${ax + w} ${y + r}V${y + h}Z`;
+  }).join('');
+const windows = (x: number, y: number, cols: number, rows: number, s = 3, gx = 6, gy = 7) =>
+  Array.from({ length: rows }, (_, r) =>
+    Array.from({ length: cols }, (_, c) => `M${x + c * gx} ${y + r * gy}h${s}v${s}h-${s}Z`).join('')
+  ).join('');
+
+const tirana = {
+  back: 'M10 140V92h22v48ZM98 140V70h14v70ZM372 140V90h22v50ZM248 140V96h14v44Z',
+  front: [
+    'M26 140V74l10-10 14 4v72Z',
+    'M60 140V40h30v100Z' + windows(65, 48, 4, 12),
+    'M98 140V82h28v58Z' + windows(103, 88, 4, 7),
+    'M132 140v-38h40v38Z' + windows(138, 108, 5, 4, 3, 7, 8),
+    'M184 140v-30h38v30ZM188 110a15 15 0 0 1 30 0Z',
+    'M178 140V66l2-8 2 8v74ZM222 140V66l2-8 2 8v74Z',
+    'M242 140V86h10v54ZM240 86l7-16 7 16Z',
+    'M262 140l28-46 28 46Z',
+    'M334 140V58h24v82Z' + windows(339, 66, 3, 9),
+    'M364 140V84h10v56Z',
+  ],
+  bridge: 'M300 140Q326 96 352 140',
+};
+const rome = {
+  back: 'M6 140V84h26v56ZM236 140V78h40v62ZM300 140V86h70v54Z',
+  front: [
+    'M16 140V92q0-8 8-8h100q8 0 8 8v48Z' + arches(24, 92, 8, 14, 8, 12.5) + arches(24, 114, 8, 14, 8, 12.5),
+    'M146 140V54h10v86ZM143 140v-12h16v12ZM146 54v-5h10v5ZM151 44a3 3 0 1 0 .01 0Z',
+    'M174 140V98h54v42ZM182 98V88h38v10ZM199 88V80h4v8Z',
+    'M246 140v-30h46v30ZM256 110V94h26v16ZM256 94a13 13 0 0 1 26 0ZM268 82h2v-8h-2Z',
+    'M300 108h66v4h-66ZM302 112h5v28h-5ZM312 112h5v28h-5ZM322 112h5v28h-5ZM332 112h5v28h-5ZM342 112h5v28h-5ZM352 112h5v28h-5Z',
+    'M380 140V74l4-14 4 14v66Z',
+  ],
+  trees: 'M166 140V120M240 140V122',
+};
+const d = city === 'tirana' ? tirana : rome;
+---
+<svg class="skyline" viewBox="0 0 400 150" role="img" aria-label={city === 'tirana' ? 'Skyline of Tirana' : 'Skyline of Rome'}>
+  <path class="back" d={d.back} />
+  {d.front.map((p) => <path class="front" d={p} fill-rule="evenodd" />)}
+  {'bridge' in d && <path class="bridge" d={(d as typeof tirana).bridge} />}
+  {'trees' in d && (
+    <g class="trees">
+      <ellipse cx="166" cy="112" rx="5" ry="14" /><ellipse cx="240" cy="114" rx="5" ry="14" />
+    </g>
+  )}
+  <rect class="ground" x="0" y="140" width="400" height="6" />
+</svg>
+<style>
+  .skyline { display: block; width: 100%; height: auto; }
+  .front, .ground { fill: var(--ink); }
+  .back, .trees { fill: var(--coral); }
+  .bridge { fill: none; stroke: var(--ink); stroke-width: 4; }
+</style>

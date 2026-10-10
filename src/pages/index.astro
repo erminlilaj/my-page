@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Skyline from '../components/Skyline.astro';
 import { education, experience, languages, projects, site, skillGroups } from '../data/site';
 ---
 
@@ -31,7 +32,7 @@ import { education, experience, languages, projects, site, skillGroups } from '.
     <section id="about" class="content-section" aria-labelledby="about-title">
       <div class="section-kicker"><span>01/</span> About</div>
       <div class="about-grid">
-        <div><h2 id="about-title">CODE WITH<br /><em>CONTEXT.</em></h2><p>I’m a software engineer based in {site.location}, completing an MSc in Computer Science &amp; Artificial Intelligence at Sapienza. My thesis at the Camera dei Deputati explores retrieval-augmented generation and local LLMs for understanding legacy codebases.</p></div>
+        <div><h2 id="about-title">CODE WITH<br /><em>CONTEXT.</em></h2><p>I’m a software engineer based in {site.location}. I graduated in Software Engineering at Epoka University and I’m now doing an MSc in Computer Science &amp; AI at Sapienza.</p><p>I’ve worked across frontend, backend and infrastructure with Java, Spring Boot, Python and JavaScript. My thesis at the Camera dei Deputati explores how retrieval-augmented generation, static analysis and local language models can help developers understand large legacy COBOL codebases.</p><p>Outside work: graphic design, video editing, cycling and strength training.</p></div>
         <aside class="about-note"><small>current mode</small><strong>BUILDING SYSTEMS<br />THAT EXPLAIN<br />SYSTEMS.</strong><i aria-hidden="true">✦</i></aside>
       </div>
       <div class="skill-groups">{skillGroups.map((group) => <div class="skill-group"><h3>{group.label}</h3><p>{group.items.map((skill) => <span class="tag">{skill}</span>)}</p></div>)}</div>
@@ -48,10 +49,27 @@ import { education, experience, languages, projects, site, skillGroups } from '.
       <div class="timeline">{experience.map((item) => <article><span>{item.period}</span><div><h3>{item.role}</h3><h4>{item.org}</h4>{item.summary && <p>{item.summary}</p>}</div></article>)}</div>
       <div class="education"><h3>Education</h3>{education.map((item) => <p><strong>{item.degree}</strong><span>{item.org} · {item.period}</span></p>)}</div>
     </section>
+    <section class="content-section journey-section" aria-labelledby="journey-title">
+      <div class="section-kicker"><span>04/</span> Journey</div>
+      <h2 id="journey-title">FROM TIRANA<br /><em>TO ROME.</em></h2>
+      <div class="journey">
+        <figure class="journey-card">
+          <Skyline city="tirana" />
+          <figcaption><strong>TIRANA, ALBANIA</strong><span>2022 – 2025</span><p>BSc in Software Engineering at Epoka University, and my first IT and software jobs at GlobalNet and Linfa.</p></figcaption>
+        </figure>
+        <div class="route" aria-hidden="true">
+          <svg viewBox="0 0 120 70"><path d="M6 56Q60 -14 112 52" /><path class="head" d="M104 40l12 14-18 2Z" /></svg>
+        </div>
+        <figure class="journey-card">
+          <Skyline city="rome" />
+          <figcaption><strong>ROME, ITALY</strong><span>2025 – NOW</span><p>MSc at Sapienza, software engineering at Links, and thesis research at the Camera dei Deputati.</p></figcaption>
+        </figure>
+      </div>
+    </section>
     <section id="contact" class="content-section contact-section" aria-labelledby="contact-title">
-      <div class="section-kicker"><span>04/</span> Contact</div>
+      <div class="section-kicker"><span>05/</span> Contact</div>
       <h2 id="contact-title">LET’S BUILD<br /><em>TOGETHER.</em></h2>
-      <p>Get in touch about software engineering work, AI research or collaborations.</p>
+      <p>I’m interested in software, backend and applied AI engineering roles in Italy and across Europe. Get in touch about work, research or collaborations.</p>
       <a class="contact-button" href={`mailto:${site.email}`}>GET IN TOUCH <span aria-hidden="true">↗</span></a>
       <div class="social-links">{site.links.map((link) => <a href={link.href}>{link.label} ↗</a>)}</div>
     </section>
@@ -78,4 +96,15 @@ import { education, experience, languages, projects, site, skillGroups } from '.
   .role-line { font-size: .8em; }
   .portrait-card { animation: card-drop .8s cubic-bezier(.2, .9, .3, 1.15) both; }
   @keyframes card-drop { from { opacity: 0; transform: translateY(-70px) rotate(-4deg); } to { opacity: 1; transform: rotate(2.5deg); } }
+  .journey { display: grid; grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1fr); gap: 8px; align-items: center; margin-top: 46px; }
+  .journey-card { margin: 0; padding: 18px 18px 20px; border: 2px solid var(--ink); background: rgba(251,247,233,.94); box-shadow: 6px 6px 0 var(--shadow, var(--ink)); transform: rotate(-1deg); }
+  .journey-card:last-child { transform: rotate(1deg); }
+  .journey-card figcaption { margin-top: 16px; padding-top: 14px; border-top: 2px dashed var(--ink); }
+  .journey-card strong { display: block; font-size: 20px; letter-spacing: -.04em; }
+  .journey-card span { display: block; margin: 3px 0 10px; color: var(--blue); font: 500 11px var(--mono); }
+  .journey-card p { margin: 0; font: 400 12px/1.65 var(--mono); }
+  .route svg { display: block; width: 100%; overflow: visible; }
+  .route path { fill: none; stroke: var(--coral); stroke-width: 3; stroke-dasharray: 2 7; stroke-linecap: round; }
+  .route .head { fill: var(--coral); stroke: none; }
+  @media (max-width: 860px) { .journey { grid-template-columns: 1fr; gap: 14px; } .route { width: 70px; margin: 0 auto; transform: rotate(90deg); } }
 </style>

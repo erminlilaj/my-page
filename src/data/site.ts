@@ -3,7 +3,7 @@ export const site = {
   name: 'Ermin Lilaj',
   tagline: 'Software engineer & AI researcher in Rome.',
   intro:
-    'Software engineer based in Rome, finishing an MSc in Computer Science & AI at Sapienza and researching retrieval-augmented generation for legacy code.',
+    'Software engineer and MSc student in Computer Science & AI at Sapienza University of Rome, working on AI for software engineering.',
   email: 'ermin.lilaj04@gmail.com',
   location: 'Rome, Italy',
   links: [
@@ -47,19 +47,19 @@ export const experience = [
     role: 'Software Engineer',
     org: 'Links Management and Technology, Rome',
     period: 'Aug 2025 – Feb 2026',
-    summary: 'Contributed to NADIR, a Counter-UAV command & control platform: React / React Flow dashboards, real-time telemetry interfaces, REST integration, Docker and Kubernetes environments.',
+    summary: 'Built interactive dashboards, dynamic forms and real-time telemetry interfaces in React and React Flow, integrated with REST services in Docker and Kubernetes environments.',
   },
   {
     role: 'Software Developer',
     org: 'Linfa Shpk, Tirana',
     period: 'Nov 2024 – Aug 2025',
-    summary: 'Frontend components and Cypress E2E testing for a training & simulation platform; Java/Spring Boot services for a public-administration document platform; an inventory and reservation system with RBAC.',
+    summary: 'Reusable frontend components with Cypress end-to-end tests; Java / Spring Boot services for document management, reporting and PDF generation; an inventory and reservation system with role-based access control.',
   },
   {
     role: 'IT Technician',
     org: 'GlobalNet Shpk, Tirana',
     period: 'Jul 2023 – Mar 2024',
-    summary: '',
+    summary: 'Supported IT equipment and CCTV / security systems.',
   },
 ];
 
@@ -67,7 +67,7 @@ export const education = [
   {
     degree: 'MSc in Computer Science & Artificial Intelligence',
     org: 'Sapienza University of Rome',
-    period: 'Sep 2025 – Present',
+    period: 'Sep 2025 – Summer 2027 (expected)',
   },
   {
     degree: 'BSc in Software Engineering',
@@ -80,7 +80,7 @@ export const skillGroups = [
   { label: 'Languages', items: ['Java', 'Python', 'C', 'JavaScript', 'SQL'] },
   { label: 'Backend', items: ['Spring Boot', 'REST APIs', 'Microservices', 'JWT', 'Kafka'] },
   { label: 'Frontend', items: ['React', 'React Flow', 'Angular', 'HTML', 'CSS'] },
-  { label: 'AI / ML', items: ['LLMs', 'RAG', 'Deep Learning', 'Vector Search', 'Graph Retrieval'] },
+  { label: 'AI / ML', items: ['LLMs', 'RAG', 'Deep Learning', 'Vector Search', 'BM25', 'Graph Retrieval'] },
   { label: 'Infra & Testing', items: ['PostgreSQL', 'Docker', 'Kubernetes', 'Linux', 'Git', 'CI/CD', 'Cypress', 'JUnit'] },
 ];
 
