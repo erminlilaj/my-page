@@ -24,7 +24,7 @@ Consult these guides before working on related tasks:
 ## Homepage design direction
 
 The homepage is an art-directed, full-screen portfolio hero for a CS + AI student.
-Preserve its neo-brutalist scrapbook language: a warm cream checked-paper background,
+Preserve its neo-brutalist scrapbook language: a butter-yellow checked-paper background,
 hard black borders and offset shadows, slightly imperfect rotations, restrained terminal
 details, and HTML/CSS pixel art. Do not replace it with a generic SaaS, glass, neon, or
 terminal-first interface.
@@ -32,12 +32,13 @@ terminal-first interface.
 - Use the existing Astro structure and avoid adding dependencies for this page.
 - Use `Space Grotesk` for display type and `DM Mono` for navigation, labels, buttons,
   supporting copy, and terminal details.
-- Keep the palette limited to: ink `#171713`, paper `#f3efdf`, coral `#ff5b47`, cobalt
-  `#3047d8`, acid green `#d7f04b`, pink `#ffc6d1`, and tape blue `#78cee6`.
+- Keep the palette limited to: ink (deep marine) `#0a1f44`, paper (pale butter) `#fff8e1`, red
+  `#d91f26` (buttons and small marks only), marine blue `#0f3d91`, butter yellow `#f5d547`, pale blue `#c9dcf5`, and tape
+  blue `#8fb3e8`. A dark theme (toggle in the header) flips the page colors and keeps cards light.
 - Keep the blue graph-paper grid (about 26px) and a very subtle paper-grain overlay.
 - The headline must remain the primary visual element; the scrapbook portrait is second;
   terminal cards and decorative stickers stay small and secondary.
-- Keep the CSS/HTML pixel portrait rather than using stock photography or external art.
+- Keep the pixelated portrait (generated from the owner's photo in `public/ermin-pixel.png`) rather than using stock photography or external art.
 - Use the same physical-paper language for cards: black outline, hard shadow, modest
   rotation, and no large rounded corners.
 - Preserve visible focus states, semantic landmarks, accessible labels, reduced-motion

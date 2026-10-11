@@ -20,9 +20,10 @@ export const site = {
 
 export const projects: { title: string; description: string; tags: string[]; href?: string }[] = [
   {
-    title: 'RAG for legacy COBOL',
-    description: 'Master’s thesis: understanding and documenting a large COBOL codebase with static analysis, graph-guided retrieval and local LLMs.',
-    tags: ['RAG', 'LLMs', 'Python'],
+    title: 'Traceable RAG for Legacy COBOL Comprehension',
+    description: 'Peer-reviewed paper at AISM ’26, Munich. A locally deployed, open-source RAG pipeline that combines architectural and semantic analysis for traceable answers about legacy COBOL code.',
+    tags: ['Paper', 'RAG', 'COBOL', 'LLMs'],
+    href: 'https://doi.org/10.1145/3843775.3844545',
   },
   {
     title: 'Astra Protocollo',
