@@ -9,7 +9,7 @@ const nav = [
 ---
 <header class="site-header">
   <div class="header-inner">
-    <a class="monogram" href="/" aria-label="Ermin Lilaj, home">EL<span>!</span></a>
+    <a class="monogram" href="/" aria-label="Ermin Lilaj, home"><span class="badge" aria-hidden="true"><svg viewBox="0 0 11 5" shape-rendering="crispEdges"><path class="el" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM5 0h1v1h-1zM0 1h1v1h-1zM5 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM0 3h1v1h-1zM5 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1z" /><path class="dot" d="M10 4h1v1h-1z" /></svg></span><span class="wordmark" translate="no"><strong>Ermin Lilaj</strong><small>Software engineer</small></span></a>
     <nav aria-label="Primary navigation">
       {nav.map((n) => (
         <a href={n.href}><small>{n.prefix}</small> {n.label}</a>
@@ -24,8 +24,15 @@ const nav = [
 <style>
   .site-header { position: relative; z-index: 10; border-bottom: 2px solid var(--ink); background: var(--paper); }
   .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: min(1180px, calc(100% - 64px)); min-height: 77px; margin: 0 auto; padding: 18px 0; }
-  .monogram { justify-self: start; color: var(--ink); font-size: 25px; font-weight: 700; letter-spacing: -.13em; text-decoration: none; transform: rotate(-3deg); }
-  .monogram span { color: var(--coral); }
+  .badge { display: grid; place-items: center; width: 44px; height: 44px; flex: none; background: var(--ink); box-shadow: 3px 3px 0 var(--shadow, var(--blue)); transition: transform .15s ease, box-shadow .15s ease; }
+  .badge svg { display: block; width: 33px; height: 15px; }
+  .badge .el { fill: var(--paper); }
+  .badge .dot { fill: var(--coral); }
+  .monogram:hover .badge, .monogram:focus-visible .badge { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shadow, var(--blue)); }
+  .wordmark { display: grid; gap: 3px; line-height: 1; }
+  .wordmark strong { font: 700 17px/1 var(--font); letter-spacing: -.03em; }
+  .wordmark small { color: var(--ink); opacity: .65; font: 400 10px/1 var(--mono); letter-spacing: .02em; }
+  .monogram { display: inline-flex; align-items: center; gap: 12px; justify-self: start; color: var(--ink); text-decoration: none; }
   nav { display: flex; gap: 22px; }
   nav a { position: relative; padding: 4px 0; color: var(--ink); font: 500 12px var(--mono); text-decoration: none; text-transform: uppercase; }
   nav a small { color: var(--blue); font-size: 9px; vertical-align: 1px; }
@@ -36,6 +43,7 @@ const nav = [
   .theme-toggle:hover, .theme-toggle:focus-visible { background: var(--acid); }
   .talk-button { justify-self: end; padding: 10px 12px 9px; border: 2px solid var(--ink); background: var(--acid); box-shadow: 3px 3px 0 var(--shadow, var(--ink)); color: var(--ink); font: 500 11px var(--mono); text-decoration: none; text-transform: uppercase; transition: transform .15s ease, box-shadow .15s ease; }
   .talk-button:hover, .talk-button:focus-visible { box-shadow: none; transform: translate(3px, 3px); }
+  @media (max-width: 480px) { .wordmark small { display: none; } }
   @media (max-width: 760px) { .header-inner { grid-template-columns: 1fr auto; width: min(100% - 36px, 580px); } nav { display: none; } }
 </style>
 <script>
