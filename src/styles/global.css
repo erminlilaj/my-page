@@ -7,7 +7,8 @@
   --on-coral: #0a1f44;
   --pink: #c9dcf5;
   --tape-blue: #8fb3e8;
-  --grid-line: rgba(15, 61, 145, 0.15);
+  --grid-line: rgba(15, 61, 145, 0.1);
+  --mark-shadow: #0f3d91;
   --font: 'Space Grotesk', system-ui, sans-serif;
   --mono: 'DM Mono', ui-monospace, monospace;
   --bg: #fafaf9;
@@ -33,7 +34,7 @@ h1, h2, h3 { text-wrap: balance; }
 
 /* Shared defaults for the supporting pages; the homepage supplies its own art direction. */
 main.page-main { width: min(1180px, calc(100% - 64px)); min-height: calc(100vh - 140px); margin: 0 auto; padding: 62px 0 74px; }
-main.page-main > h1 { display: inline-block; margin: 0 0 28px; padding: 3px 6px 0 0; color: var(--ink); font-size: clamp(3rem, 8vw, 6rem); line-height: .82; letter-spacing: -.075em; text-transform: uppercase; }
+main.page-main > h1 { display: inline-block; margin: 0 0 28px; padding: 3px 6px 0 0; color: var(--ink); font-size: clamp(3rem, 8vw, 6rem); line-height: .85; letter-spacing: -.04em; text-transform: uppercase; }
 main.page-main > h2 { margin: 44px 0 18px; color: var(--blue); font-size: 1.1rem; letter-spacing: .08em; text-transform: uppercase; }
 main.page-main > p { max-width: 760px; }
 .muted { color: rgba(10,31,68,.64); font-family: var(--mono); font-size: .84em; }
@@ -57,7 +58,8 @@ main.page-main > p a { color: var(--blue); font-family: var(--mono); }
   --coral: #2dd4bf;
   --on-coral: #081428;
   --acid: #f5d547;
-  --grid-line: rgba(141, 179, 242, 0.12);
+  --grid-line: rgba(141, 179, 242, 0.09);
+  --mark-shadow: #122a55;
   --shadow: #020711;
   --panel: #122a55;
 }
