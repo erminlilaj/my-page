@@ -15,8 +15,8 @@ import { education, experience, languages, projects, site, skillGroups } from '.
             <h1 id="hero-title"><span>SOFTWARE</span><span class="outline">ENGINEER</span><span class="role-line"><em>&amp;</em> AI STUDENT</span></h1>
             <b class="crosses" aria-hidden="true">x x x</b>
           </div>
-          <p class="intro">I’m <mark>Ermin</mark>, a software engineer in Rome focused on backend, full-stack and applied AI. I build production systems, research language models for legacy code, and I’m open to roles across Italy and Europe.</p>
-          <div class="actions"><a class="work-button" href="#work">SEE MY WORK <span aria-hidden="true">→</span></a><a class="hello-link" href="#contact">or get in touch</a></div>
+          <p class="intro">I’m <mark>Ermin</mark>, a software engineer in Rome focused on backend, full-stack and applied AI. I build production systems and research language models for legacy code.</p>
+          <div class="actions"><a class="work-button" href="#work">SEE MY WORK <span aria-hidden="true">→</span></a></div>
           <p class="learning"><span aria-hidden="true">✦</span> BUILDING, RESEARCHING &amp; SHIPPING</p>
           <div class="stack" aria-label="Technology stack: Java, Python, React, RAG"><b>~/stack $</b><span>JAVA</span><i></i><span>PYTHON</span><i></i><span>REACT</span><i></i><span>RAG</span></div>
         </div>
@@ -66,12 +66,9 @@ import { education, experience, languages, projects, site, skillGroups } from '.
         </figure>
       </div>
     </section>
-    <section id="contact" class="content-section contact-section" aria-labelledby="contact-title">
-      <div class="section-kicker"><span>05/</span> Contact</div>
-      <h2 id="contact-title">LET’S BUILD<br /><em>TOGETHER.</em></h2>
-      <p>I’m interested in software, backend and applied AI engineering roles in Italy and across Europe. Get in touch about work, research or collaborations.</p>
-      <a class="contact-button" href={`mailto:${site.email}`}>GET IN TOUCH <span aria-hidden="true">↗</span></a>
-      <p class="contact-meta"><span>Based in Rome, Italy</span><span>Open to roles across Italy and Europe</span><a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <section id="contact" class="content-section contact-section" aria-label="Links">
+      <div class="section-kicker"><span>05/</span> Links</div>
+      <p class="contact-meta"><span>Based in Rome, Italy</span></p>
       <div class="social-links">{site.links.map((link) => <a href={link.href}>{link.label} ↗</a>)}</div>
     </section>
   </div>
