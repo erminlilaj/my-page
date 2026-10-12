@@ -11,19 +11,32 @@ export const site = {
     { label: 'LinkedIn', href: 'https://linkedin.com/in/ermin-lilaj' },
   ],
   nav: [
-    { label: 'About', href: '/about' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Resume', href: '/resume' },
+    { label: 'About', href: '/#about' },
+    { label: 'Work', href: '/#work' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Journey', href: '/#journey' },
+    { label: 'Contact', href: '/#contact' },
   ],
 };
 
-export const projects: { title: string; description: string; tags: string[]; href?: string }[] = [
+export const projects: { title: string; description: string; tags: string[]; highlights?: string[]; href?: string; cta?: string; status?: string; links?: { label: string; href: string }[] }[] = [
   {
     title: 'Traceable RAG for Legacy COBOL Comprehension',
     description: 'Peer-reviewed paper at AISM ’26, Munich. A locally deployed, open-source RAG pipeline that combines architectural and semantic analysis for traceable answers about legacy COBOL code.',
     tags: ['Paper', 'RAG', 'COBOL', 'LLMs'],
+    highlights: ['Peer reviewed', 'Local LLMs', 'Traceable retrieval'],
     href: 'https://doi.org/10.1145/3843775.3844545',
+    cta: 'Read the paper',
+  },
+  {
+    title: 'WaitLess',
+    description: 'University IoT project: an adaptive traffic-light prototype for a two-way crossroad. ESP32 nodes with ultrasonic sensors talk over LoRa and adjust the signals to vehicle presence.',
+    tags: ['ESP32', 'C++', 'Python', 'LoRa'],
+    status: 'University project',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/erminlilaj/iot-waitLess' },
+      { label: 'Demo video', href: 'https://www.youtube.com/watch?v=lq9b3uMraB4' },
+    ],
   },
   {
     title: 'Astra Protocollo',

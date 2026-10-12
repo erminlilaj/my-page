@@ -6,6 +6,19 @@ import { site } from '../data/site';
 interface Props { title?: string; description?: string; fullBleed?: boolean }
 const { title, description = site.tagline, fullBleed = false } = Astro.props;
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const socialImage = new URL('/ermin-pixel.png', Astro.site ?? Astro.url.origin);
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: canonical.origin,
+  image: socialImage.href,
+  email: `mailto:${site.email}`,
+  jobTitle: 'Software Engineer and AI Researcher',
+  address: { '@type': 'PostalAddress', addressLocality: 'Rome', addressCountry: 'IT' },
+  sameAs: site.links.map((link) => link.href),
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -13,7 +26,18 @@ const fullTitle = title ? `${title} · ${site.name}` : site.name;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#fbfaf6" />
+    <meta name="theme-color" content="#fbf1c7" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Pixel-art portrait of Ermin Lilaj" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" />
@@ -26,6 +50,7 @@ const fullTitle = title ? `${title} · ${site.name}` : site.name;
       } catch (e) {}
     </script>
     <title>{fullTitle}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
